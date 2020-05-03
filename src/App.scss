@@ -91,12 +91,15 @@ body {
 }
 
 .u-center-text{
-    text-align: center;
+    text-align: center !important;
 }
 
-.u-margin-bottom-big{ margin-bottom: 8rem;}
-.u-margin-bottom-medium{ margin-bottom: 4rem;}
-.u-margin-bottom-small{ margin-bottom: 1.5rem;}
+.u-margin-bottom-big{ margin-bottom: 8rem !important;}
+.u-margin-bottom-medium{ margin-bottom: 4rem !important;}
+.u-margin-bottom-small{ margin-bottom: 1.5rem !important;}
+
+.u-margin-top-big{ margin-top: 8rem !important;}
+.u-margin-top-huge{ margin-top: 10rem !important;}
 
 .heading-tertiary{
     font-size: $default-font-size;
@@ -138,16 +141,21 @@ body {
 }
 
 .btn{
+    &,
     &:link,
     &:visited {
       text-transform: uppercase;
       text-decoration: none;
-      padding: 2.5rem 4rem;
+      padding: 1.5rem 4rem;
       display: inline-block;
       border-radius: 10rem;
       transition: all 0.2s;
       position: relative;
       font-size: $default-font-size;
+
+      //change for the <button>
+      border: none;
+      cursor: pointer;
     }
   
     &:hover {
@@ -158,8 +166,10 @@ body {
         transition: all 0.1s;
       }
     }
-  
+    
+    &:focus,
     &:active {
+      outline: none;
       transform: translateY(-0.1rem);
       box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   
@@ -175,6 +185,15 @@ body {
   
       &::after {
         background-color: $color-white;
+      }
+    }
+
+    &--green {
+      background-color: $color-primary;
+      color: $color-white;
+  
+      &::after {
+        background-color: $color-primary;
       }
     }
   
@@ -195,3 +214,135 @@ body {
       animation-fill-mode: backwards;
     }
   }
+
+.form{
+  &__group:not(:last-child){
+    margin-bottom: 2rem;
+  }
+
+  &__input{
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .3s;
+
+    &:focus{
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-gray-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  } 
+
+  &__radio-group{
+    width: 49%;
+    display: inline-block;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label{
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -.4rem;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+  }
+
+  &__radio-input:checked + &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}
+
+.popup{
+  &__left{
+      width: 33.33333%;
+      display: table-cell;
+  }
+
+  &__right{
+      width: 66.66667%;
+      display: table-cell;
+      vertical-align: middle;
+      padding: 3rem 5rem;
+  }
+
+  &__img{
+      display: block;
+      width: 100%;
+  }
+
+  &__text{
+      font-size: 1.4rem;
+      margin-bottom: 4rem;
+
+      -moz-column-count: 2;
+      -moz-column-gap: 4rem;
+      -moz-column-rule: 1px solid $color-gray-light-2;
+
+      column-count: 2;
+      column-gap: 4rem;
+      column-rule: 1px solid $color-gray-light-2;
+
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+  }
+}
