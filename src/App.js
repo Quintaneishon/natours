@@ -26,8 +26,8 @@ function App() {
       <Footer />
       <Popup tarjet='popup'>
         <div className='popup__left'>
-            <img src='/image/nat-8.jpg' alt='Tour photo' className='popup__img' />
-            <img src='/image/nat-9.jpg' alt='Tour photo' className='popup__img' />
+            <img src='image/nat-8.jpg' alt='Tour photo' className='popup__img' />
+            <img src='image/nat-9.jpg' alt='Tour photo' className='popup__img' />
         </div>
         <div className='popup__right'>
             <h2 className='heading-secondary u-margin-bottom-small'>Start booking now</h2>
