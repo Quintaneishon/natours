@@ -29,7 +29,7 @@ function Story(props){
         <div className='row'>
             <div className='story'>
                 <figure className='story__shape'>
-                    <img src={`/image/${imagen}`} alt="person on a tour" className='story__img'></img>
+                    <img src={`image/${imagen}`} alt="person on a tour" className='story__img'></img>
                     <figcaption className='story__caption'>
                         {nombre}
                     </figcaption>

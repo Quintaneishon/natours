@@ -31,17 +31,17 @@ export default function About() {
                                 sizes='(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 300px' 
                                 alt='photo 1'
                                 className='composition__photo composition__photo--p1'
-                                src='/image/nat-1-large.jpg' />
+                                src='image/nat-1-large.jpg' />
                         <img srcSet='image/nat-2.jpg 300w, image/nat-2-large.jpg 1000w' 
                                 sizes='(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 300px' 
                                 alt='photo 2'
                                 className='composition__photo composition__photo--p2'
-                                src='/image/nat-2-large.jpg' />
+                                src='image/nat-2-large.jpg' />
                         <img srcSet='image/nat-3.jpg 300w, image/nat-3-large.jpg 1000w' 
                                 sizes='(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 300px' 
                                 alt='photo 3'
                                 className='composition__photo composition__photo--p3'
-                                src='/image/nat-3-large.jpg' />
+                                src='image/nat-3-large.jpg' />
                         {/* <img src={`/image/nat-1-large.jpg`} alt="photo 1" className="composition__photo composition__photo--p1"></img>
                         <img src={`/image/nat-2-large.jpg`} alt="photo 2" className="composition__photo composition__photo--p2"></img>
                         <img src={`/image/nat-3-large.jpg`} alt="photo 3" className="composition__photo composition__photo--p3"></img> */}

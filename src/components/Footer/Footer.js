@@ -8,9 +8,9 @@ export default function Footer(){
         <footer className='footer'>
             <div className='footer__logo-box'>
                 <picture className='footer__logo'>
-                    <source srcSet='/image/logo-green-small-1x.png 1x, /image/logo-green-small-2x.png 2x' 
+                    <source srcSet='image/logo-green-small-1x.png 1x, image/logo-green-small-2x.png 2x' 
                             media='(max-width: 37.5rem)' />
-                    <img srcSet='/image/logo-green-1x.png 1x, /image/logo-green-2x.png 2x' alt='Full logo' className='footer__logo' src='/image/logo-green-2x.png' />    
+                    <img srcSet='image/logo-green-1x.png 1x, image/logo-green-2x.png 2x' alt='Full logo' className='footer__logo' src='/image/logo-green-2x.png' />    
                 </picture>
             </div>
             <div className='row'>

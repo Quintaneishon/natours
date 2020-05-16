@@ -8,7 +8,7 @@ export default function Header() {
     <header className="header">
       <div className="header__logo-box">
         <img
-          src={`/image/logo-white.png`}
+          src={`image/logo-white.png`}
           alt="Logo"
           className="header__logo"
         />
