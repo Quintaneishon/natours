@@ -1,4 +1,44 @@
 @import './Variables.scss';
+@import './mixins.scss';
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
 
 *,
 *::after,
@@ -9,7 +49,18 @@
 }
 
 html {
-  font-size: 62.5%;
+  //this defines what 1rem is
+  font-size: 62.5%; //1rem = 10px;  10px/16px = 62.5%
+  
+  @include respond(tab-land){ // width < 1200
+    font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+  }
+  @include respond(tab-port){ // width < 900
+    font-size: 50%; //1rem = 8px, 8/16 = 50%
+  }
+  @include respond(big-desktop){
+    font-size: 75%; //1rem = 12, 12/16 = 75%
+  }
 }
 
 body {
@@ -20,7 +71,51 @@ body {
   color: #777;
   padding: 3rem;
   box-sizing: border-box;
+  @include respond(tab-port){
+    padding: 0;
+  }
 }
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+  
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+  
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+      
+    @include respond(phone){
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+  
+    /* animation-delay: 3s;
+    animation-iteration-count: 3; */
+  }
+  
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.75rem;
+  
+    animation: moveInRight 1s ease-out;
+    @include respond(phone){
+      letter-spacing: .5rem;
+    }
+  }
+}
+
 
 .heading-secondary{
     font-size: 3.5rem;
@@ -33,17 +128,17 @@ body {
     letter-spacing: .2rem;
     transition: all .2s;
 
+    @include respond(tab-port){
+      font-size: 3rem;
+    }
+
+    @include respond(phone){
+      font-size: 2.5rem;
+    }
+
     &:hover{
         transform: skewY(2deg) skewX(15deg) scale(1.1);
         text-shadow: .5rem 1rem 2rem rgba($color-black,.2);
-    }
-}
-
-@mixin clearfix{
-    &::after{
-        content: "";
-        display: table;
-        clear: both;
     }
 }
 
@@ -53,6 +148,14 @@ body {
 
     &:not(:last-child){
         margin-bottom: $gutter-vertical;
+        @include respond(tab-port){
+          margin-bottom: $gutter-vertical-small;
+        }
+    }
+
+    @include respond(tab-port){
+      max-width: 50rem;
+      padding: 0 3rem;
     }
 
     @include clearfix;
@@ -62,6 +165,14 @@ body {
 
         &:not(:last-child){
             margin-right: $gutter-horizontal;
+            @include respond(tab-port){
+              margin-right: 0;
+              margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        @include respond(tab-port){
+          width: 100% !important;
         }
     }
 
@@ -94,8 +205,20 @@ body {
     text-align: center !important;
 }
 
-.u-margin-bottom-big{ margin-bottom: 8rem !important;}
-.u-margin-bottom-medium{ margin-bottom: 4rem !important;}
+.u-margin-bottom-big{ 
+  margin-bottom: 8rem !important;
+
+  @include respond(tab-port){
+    margin-bottom: 5rem !important;
+  }
+}
+.u-margin-bottom-medium{ 
+  margin-bottom: 4rem !important;
+
+  @include respond(tab-port){
+    margin-bottom: 3rem !important;
+  }
+}
 .u-margin-bottom-small{ margin-bottom: 1.5rem !important;}
 
 .u-margin-top-big{ margin-top: 8rem !important;}
@@ -233,6 +356,10 @@ body {
     display: block;
     transition: all .3s;
 
+    @include respond(tab-port){
+      width: 100%;
+    }
+
     &:focus{
       outline: none;
       box-shadow: 0 1rem 2rem rgba($color-black, .1);
@@ -266,6 +393,11 @@ body {
   &__radio-group{
     width: 49%;
     display: inline-block;
+
+    @include respond(tab-port){
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-input {
@@ -314,6 +446,10 @@ body {
   &__left{
       width: 33.33333%;
       display: table-cell;
+
+      @include respond(phone){
+        display: table-header-group;
+      }
   }
 
   &__right{
@@ -326,12 +462,20 @@ body {
   &__img{
       display: block;
       width: 100%;
+      @include respond(phone){
+        display: inline-block;
+        width: 50%;
+      }
   }
 
   &__text{
       font-size: 1.4rem;
       margin-bottom: 4rem;
 
+      @include respond(tab-port){
+        font-size: 1.1rem;
+      }
+      
       -moz-column-count: 2;
       -moz-column-gap: 4rem;
       -moz-column-rule: 1px solid $color-gray-light-2;
@@ -345,4 +489,9 @@ body {
       -webkit-hyphens: auto;
       hyphens: auto;
   }
+}
+
+::selection{
+  background-color: $color-primary;
+  color: white;
 }

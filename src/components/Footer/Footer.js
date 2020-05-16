@@ -7,7 +7,11 @@ export default function Footer(){
     return(
         <footer className='footer'>
             <div className='footer__logo-box'>
-                <img src='/image/logo-green-2x.png' alt='Full logo' className='footer__logo' />
+                <picture className='footer__logo'>
+                    <source srcSet='/image/logo-green-small-1x.png 1x, /image/logo-green-small-2x.png 2x' 
+                            media='(max-width: 37.5rem)' />
+                    <img srcSet='/image/logo-green-1x.png 1x, /image/logo-green-2x.png 2x' alt='Full logo' className='footer__logo' src='/image/logo-green-2x.png' />    
+                </picture>
             </div>
             <div className='row'>
                 <div className='col-1-of-2'>
