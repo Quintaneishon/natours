@@ -4,7 +4,7 @@
 .header {
   height: 85vh;
   background-image: linear-gradient(to right bottom,rgba($color-primary-light, 0.8), rgba($color-primary-dark,0.8)),
-    url(../../image/hero-small.jpg);
+    url(/natours/image/hero-small.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
@@ -19,7 +19,7 @@
       only screen and (-webkit-min-device-pixel-ratio:2) and (min-width: 37.5em),
       only screen and (min-width: 125em){
     background-image: linear-gradient(to right bottom,rgba($color-primary-light, 0.8), rgba($color-primary-dark,0.8)),
-    url(../../image/hero.jpg);
+    url(/natours/image/hero.jpg);
   }
 
   @include respond(phone){
